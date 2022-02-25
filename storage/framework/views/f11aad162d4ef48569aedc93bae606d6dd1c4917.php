@@ -64,7 +64,7 @@
                                  <a class="nav-link" href="<?php echo e(route('uFasilitas.index')); ?>">Fasilitas</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="<?php echo e(route('booking.index')); ?>">Booking</a>
+                                 <a class="nav-link" href="<?php echo e(route('bookings.index')); ?>">Booking</a>
                               </li>
                               <li class="nav-item">
                                     <form method="POST" action="<?php echo e(route('logout')); ?>">

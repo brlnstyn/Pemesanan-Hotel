@@ -604,7 +604,6 @@ button {
 /** blog section **/
 
 .blog {
-     background: url(../images/blog_bg.jpg);
      background-repeat: no-repeat;
      background-size: 100% 100%;
      padding: 60px 0 30px 0;
@@ -616,11 +615,11 @@ button {
 }
 
 .blog .titlepage h2 {
-     color: #fff;
+     color: #121212;
 }
 
 .blog .titlepage p {
-     color: #fff;
+     color: #121212;
      font-size: 17px;
      margin-top: 20px;
 }
@@ -721,7 +720,7 @@ button {
      text-transform: uppercase;
      color: #fff;
      padding: 10px 0px;
-     max-width: 193px;
+     max-width: 300px;
      width: 100%;
      display: block;
      margin-top: 10px !important;

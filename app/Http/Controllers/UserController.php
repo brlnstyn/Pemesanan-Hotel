@@ -11,16 +11,4 @@ class UserController extends Controller
         return view('dashboards.users.index');
     }
 
-    function fasilitas()
-    {
-        return view('dashboards.users.fasilitas');
-    }
-
-    function kamar(){
-        return view('dashboards.users.kamar');
-    }
-
-    function booking(){
-        return view('dashboards.users.booking');
-    }
 }

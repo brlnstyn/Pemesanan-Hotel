@@ -97,7 +97,26 @@
          <div class="container">
             <div class="row">
                <div class="col-md-12">
-                  <form id="request" class="main_form">
+               <form class="row g-5 main_form" autocomplete="off">
+                  <div class="col-md-3">
+                     <label for="tgl_check_in" class="form-label">Tanggal Check In</label>
+                     <input type="date" class="contactus" id="tgl_check_in" name="tgl_check_in" placeholder="yyyy/mm/dd">
+                  </div>
+                  <div class="col-md-3">
+                     <label for="tgl_check_out" class="form-label">Tanggal Check Out</label>
+                     <input type="date" class="contactus" id="tgl_check_out" name="tgl_check_in" placeholder="yyyy/mm/dd">
+                  </div>
+                  <div class="col-md-3">
+                     <label for="nama_tamu" class="form-label">Nama Tamu</label>
+                     <input type="text" class="contactus" id="nama_tamu" name="nama_tamu" placeholder="Nama Tamu">
+                  </div>
+                  <div class="col-2 mt-4">
+                     <button type="submit" class="send_btn">Pesan</button>
+                  </div>
+               </form>
+               <br>
+
+                  <form id="request" class="main_form" autocomplete="off">
                      <div class="row">
                         <div class="col-md-12 ">
                             <strong>Nama Pemesan</strong>
@@ -112,30 +131,18 @@
                            <input class="contactus" placeholder="Phone Number" type="number" name="Phone Number">                          
                         </div>
                         <div class="col-md-12">
-                            <strong>Nama Tamu</strong>
-                            <input class="contactus" placeholder="Nama Tamu" type="text" name="nama tamu">
-                        </div>
-                        <div class="col-md-12">
                             <strong>Tipe Kamar</strong>
                             <select class="contactus" name="tipe_kamar">
                                 <option value="Junior Suite">Junior Suite</option>
                                 <option value="Superior">Superior</option>
                             </select>
-                        </div>Phone N
+                        </div>
                         <div class="col-md-12">
                             <strong>Jumlah Kamar</strong>
-                           <input class="contactus" placeholder="Jumlah Kamar" type="number" name="jumlah_kamar">                          
+                           <input class="contactus" placeholder="Jumlah Kamar" type="number" name="jumlah">                          
                         </div>
                         <div class="col-md-12">
-                            <strong>Check In</strong>
-                            <input class="contactus" placeholder="yyyy/mm/dd" type="date" name="tglcheckin">
-                        </div>
-                        <div class="col-md-12">
-                            <strong>Check Out</strong>
-                            <input class="contactus" placeholder="yyyy/mm/dd" type="date" name="tglcheckout">
-                        </div>
-                        <div class="col-md-12">
-                           <button class="send_btn">Booking</button>
+                           <button class="send_btn">Konfirmasi Pesanan</button>
                         </div>
                      </div>
                   </form>

@@ -64,7 +64,7 @@
                                  <a class="nav-link" href="{{ route('uFasilitas.index') }}">Fasilitas</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="{{ route('booking.index') }}">Booking</a>
+                                 <a class="nav-link" href="{{ route('bookings.index') }}">Booking</a>
                               </li>
                               <li class="nav-item">
                                     <form method="POST" action="{{ route('logout') }}">

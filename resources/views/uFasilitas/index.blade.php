@@ -64,7 +64,7 @@
                                  <a class="nav-link" href="#">Fasilitas</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="{{ route('booking.index') }}">Booking</a>
+                                 <a class="nav-link" href="{{ route('bookings.index') }}">Booking</a>
                               </li>
                               <li class="nav-item">
                                     <form method="POST" action="{{ route('logout') }}">
@@ -87,60 +87,36 @@
             <div class="row">
                <div class="col-md-12">
                   <div class="title">
-                      <h2>Fasilitas</h2>
+                     <h2>Fasilitas</h2>
                   </div>
                </div>
             </div>
          </div>
       </div>
-      <!-- blog -->
-      <div  class="blog">
+      <!-- our_room -->
+      <div  class="our_room">
          <div class="container">
             <div class="row">
                <div class="col-md-12">
                   <div class="titlepage">
-                    
-                     <p class="margin_0">Kami menyediakan beberapa fasilitas yang bisa Anda gunakan </p>
+                     <p  class="margin_0">Kami menyediakan beberapa fasilitas untuk Anda </p>
                   </div>
                </div>
             </div>
             <div class="row">
-               <div class="col-md-4">
-                  <div class="blog_box">
-                     <div class="blog_img">
-                        <figure><img src="../assets/images/blog1.jpg" alt="#"/></figure>
+            @foreach ($facilities as $facility)
+               <div class="col-md-4 col-sm-6">
+                  <div id="serv_hover"  class="room">
+                     <div class="room_img">
+                        <figure><img src="/image/{{ $facility->image }}" alt="#"/></figure>
                      </div>
-                     <div class="blog_room">
-                        <h3>Bed Room</h3>
-                        <span>The standard chunk </span>
-                        <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generatorsIf you are   </p>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="blog_box">
-                     <div class="blog_img">
-                        <figure><img src="../assets/images/blog2.jpg" alt="#"/></figure>
-                     </div>
-                     <div class="blog_room">
-                        <h3>Bed Room</h3>
-                        <span>The standard chunk </span>
-                        <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generatorsIf you are   </p>
+                     <div class="bed_room">
+                        <h3>{{ $facility->nama_fasilitas }}</h3>
+                        <p>{{ $facility->keterangan }}</p>
                      </div>
                   </div>
                </div>
-               <div class="col-md-4">
-                  <div class="blog_box">
-                     <div class="blog_img">
-                        <figure><img src="../assets/images/blog3.jpg" alt="#"/></figure>
-                     </div>
-                     <div class="blog_room">
-                        <h3>Bed Room</h3>
-                        <span>The standard chunk </span>
-                        <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generatorsIf you are   </p>
-                     </div>
-                  </div>
-               </div>
+            @endforeach
             </div>
          </div>
       </div>
@@ -163,10 +139,10 @@
                   <div class="col-md-4">
                      <h3>Menu Link</h3>
                      <ul class="link_menu">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href=""> Kamar</a></li>
-                        <li><a href="">Fasilitas</a></li>
-                        <li><a href="">Booking</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="{{ route('uKamar.index') }}"> Kamar</a></li>
+                        <li class="active"><a href="#">Fasilitas</a></li>
+                        <li><a href="{{ route('bookings.index') }}">Booking</a></li>
                      </ul>
                   </div>
                   <div class="col-md-4">

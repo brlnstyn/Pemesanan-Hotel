@@ -7,7 +7,14 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UKamarController;
 use App\Http\Controllers\UFasilitasController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\FasilitasKamarController;
+use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\RegisterAdminController;
+use App\Http\Controllers\RegisterReceptionistController;
+use App\Http\Controllers\BuktiController;
 use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -41,5 +48,12 @@ Route::group(['prefix'=>'user', 'middleware'=>['isUser', 'auth', 'PreventBackHis
 
 Route::resource('uFasilitas', UFasilitasController::class);
 Route::resource('uKamar', UKamarController::class);
-Route::resource('booking', BookingController::class);
+Route::resource('bookings', BookingController::class);
+Route::resource('rooms', RoomController::class);
+Route::resource('fasilitasKamar', FasilitasKamarController::class);
+Route::resource('facilities', FacilityController::class);
+Route::resource('registerAdmin', RegisterAdminController::class);
+Route::resource('registerReceptionist', RegisterReceptionistController::class);
+Route::resource('bukti', BuktiController::class);
+
 

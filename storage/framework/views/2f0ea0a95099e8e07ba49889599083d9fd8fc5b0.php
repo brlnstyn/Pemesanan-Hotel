@@ -64,7 +64,7 @@
                                  <a class="nav-link" href="<?php echo e(route('uFasilitas.index')); ?>">Fasilitas</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="<?php echo e(route('booking.index')); ?>">Booking</a>
+                                 <a class="nav-link" href="<?php echo e(route('bookings.index')); ?>">Booking</a>
                               </li>
                               <li class="nav-item">
                                     <form method="POST" action="<?php echo e(route('logout')); ?>">
@@ -104,72 +104,20 @@
                </div>
             </div>
             <div class="row">
-               <div class="col-md-4 col-sm-6">
+            <?php $__currentLoopData = $rooms; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $room): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+               <div class="col-md-12 col-sm-5">
                   <div id="serv_hover"  class="room">
                      <div class="room_img">
-                        <figure><img src="../assets/images/room1.jpg" alt="#"/></figure>
+                        <figure><img src="/image/<?php echo e($room->image); ?>" alt="#"/></figure>
                      </div>
                      <div class="bed_room">
-                        <h3>Bed Room</h3>
-                        <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there </p>
+                        <h3><?php echo e($room->tipe_kamar); ?></h3>
+                        <span><strong><?php echo e($room->harga); ?></strong></span>
+                        <p><?php echo e($room->fasilitas); ?></p>
                      </div>
                   </div>
                </div>
-               <div class="col-md-4 col-sm-6">
-                  <div id="serv_hover"  class="room">
-                     <div class="room_img">
-                        <figure><img src="../assets/images/room2.jpg" alt="#"/></figure>
-                     </div>
-                     <div class="bed_room">
-                        <h3>Bed Room</h3>
-                        <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there </p>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-4 col-sm-6">
-                  <div id="serv_hover"  class="room">
-                     <div class="room_img">
-                        <figure><img src="../assets/images/room3.jpg" alt="#"/></figure>
-                     </div>
-                     <div class="bed_room">
-                        <h3>Bed Room</h3>
-                        <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there </p>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-4 col-sm-6">
-                  <div id="serv_hover"  class="room">
-                     <div class="room_img">
-                        <figure><img src="../assets/images/room4.jpg" alt="#"/></figure>
-                     </div>
-                     <div class="bed_room">
-                        <h3>Bed Room</h3>
-                        <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there </p>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-4 col-sm-6">
-                  <div id="serv_hover"  class="room">
-                     <div class="room_img">
-                        <figure><img src="../assets/images/room5.jpg" alt="#"/></figure>
-                     </div>
-                     <div class="bed_room">
-                        <h3>Bed Room</h3>
-                        <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there </p>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-4 col-sm-6">
-                  <div id="serv_hover"  class="room">
-                     <div class="room_img">
-                        <figure><img src="../assets/images/room6.jpg" alt="#"/></figure>
-                     </div>
-                     <div class="bed_room">
-                        <h3>Bed Room</h3>
-                        <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there </p>
-                     </div>
-                  </div>
-               </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
          </div>
       </div>
@@ -191,10 +139,10 @@
                   <div class="col-md-4">
                      <h3>Menu Link</h3>
                      <ul class="link_menu">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href=""> Kamar</a></li>
-                        <li><a href="">Fasilitas</a></li>
-                        <li><a href="">Booking</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li class="active"><a href="#"> Kamar</a></li>
+                        <li><a href="<?php echo e(route('uFasilitas.index')); ?>">Fasilitas</a></li>
+                        <li><a href="<?php echo e(route('bookings.index')); ?>">Booking</a></li>
                      </ul>
                   </div>
                   <div class="col-md-4">

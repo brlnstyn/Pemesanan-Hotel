@@ -1,179 +1,100 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Language" content="en">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Hotel Hebat | Admin</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
-    <meta name="description" content="">
-    <meta name="author" content="">
-<link href="../../assets/admin/main.css" rel="stylesheet"></head>
-<body>
-    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
-        <div class="app-header header-shadow">
-            <div class="app-header__logo">
-                <div class="logo-src"></div>
-                <div class="header__pane ml-auto">
-                    <div>
-                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
-                            <span class="hamburger-box">
-                                <span class="hamburger-inner"></span>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="app-header__mobile-menu">
-                <div>
-                    <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
-                        <span class="hamburger-box">
-                            <span class="hamburger-inner"></span>
-                        </span>
-                    </button>
-                </div>
-            </div>
-            <div class="app-header__menu">
-                <span>
-                    <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
-                        <span class="btn-icon-wrapper">
-                            <i class="fa fa-ellipsis-v fa-w-6"></i>
-                        </span>
-                    </button>
-                </span>
-            </div>    <div class="app-header__content">
-                <div class="app-header-left">
-                    <div class="search-wrapper">
-                        <div class="input-holder">
-                            <input type="text" class="search-input" placeholder="Type to search">
-                            <button class="search-icon"><span></span></button>
-                        </div>
-                        <button class="close"></button>
-                    </div>
-                 </div>
-            </div>
-        </div>        
-        <div class="app-main">
-                <div class="app-sidebar sidebar-shadow">
-                    <div class="app-header__logo">
-                        <div class="logo-src"></div>
-                        <div class="header__pane ml-auto">
-                            <div>
-                                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
-                                    <span class="hamburger-box">
-                                        <span class="hamburger-inner"></span>
-                                    </span>
-                                </button>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Hotel Hebat | Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="../../assets/admin/css/styles.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="#">ADMIN</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+               
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li>
+                            <form method="POST" action="<?php echo e(route('logout')); ?>">
+                                <?php echo csrf_field(); ?>
+                                <a href="route('logout')" onclick="event.preventDefault();this.closest('form').submit();" class="dropdown-item">Log out</a>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Authentication</div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Register User
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="<?php echo e(url('registerAdmin')); ?>">Admin</a>
+                                    <a class="nav-link" href="<?php echo e(url('registerReceptionist')); ?>">Receptionist</a>
+                                </nav>
                             </div>
+                            <div class="sb-sidenav-menu-heading">Data</div>
+                            <a class="nav-link" href="<?php echo e(url('rooms')); ?>">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Kamar
+                            </a>
+                            <a class="nav-link" href="<?php echo e(url('fasilitasKamar')); ?>">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Fasilitas Kamar
+                            </a>
+                            <a class="nav-link" href="<?php echo e(url('facilities')); ?>">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Fasilitas Hotel
+                            </a>
                         </div>
                     </div>
-                    <div class="app-header__mobile-menu">
-                        <div>
-                            <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
-                                <span class="hamburger-box">
-                                    <span class="hamburger-inner"></span>
-                                </span>
-                            </button>
-                        </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Start Bootstrap
                     </div>
-                    <div class="app-header__menu">
-                        <span>
-                            <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
-                                <span class="btn-icon-wrapper">
-                                    <i class="fa fa-ellipsis-v fa-w-6"></i>
-                                </span>
-                            </button>
-                        </span>
-                    </div>    
-                    <div class="scrollbar-sidebar">
-                        <div class="app-sidebar__inner">
-                            <ul class="vertical-nav-menu">
-                                <li class="app-sidebar__heading">Dashboards</li>
-                                <li>
-                                    <a href="index.html" class="mm-active">
-                                        <i class="metismenu-icon pe-7s-rocket"></i>
-                                        Dashboard
-                                    </a>
-                                </li>
-                                <li class="app-sidebar__heading">Data Dasar</li>                             
-                                <li>
-                                    <a href="">
-                                         <i class="metismenu-icon pe-7s-graph2"></i>
-                                        Kamar
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="metismenu-icon pe-7s-display2"></i>
-                                        Fasilitas Kamar
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="metismenu-icon pe-7s-pendrive"></i>
-                                        Fasilitas Hotel
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="metismenu-icon pe-7s-mouse">
-                                        </i>Data User
-                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                                    </a>
-                                    <ul>
-                                         <li>
-                                            <a href="<?php echo e(url('students')); ?>">
-                                                <i class="metismenu-icon"></i>
-                                                Siswa
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?php echo e(url('admins')); ?>">
-                                                <i class="metismenu-icon">
-                                                </i>Admin
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <br>
-                                <li>
-                                    <form class="nav-link" method="POST" action="<?php echo e(route('logout')); ?>">
-                                    <?php echo csrf_field(); ?>
-                                        <a href="route('logout')" onclick="event.preventDefault();this.closest('form').submit();"><span class="nav-link pl-0"> Log out</span>
-                                        </a>
-                                    </form>
-                                </li>
-                            </ul>
-                        </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Dashboard</h1>
                     </div>
-                </div>    
-                <div class="app-main__outer">
-                    <div class="app-main__inner">
-                        <div class="app-page-title">
-                            <div class="page-title-wrapper">
-                                <div class="page-title-heading">
-                                    <div class="page-title-icon">
-                                        <i class="pe-7s-car icon-gradient bg-mean-fruit">
-                                        </i>
-                                    </div>
-                                    <div>SELAMAT DATANG ADMIN!
-                                        <div class="page-title-subheading">Semoga harimu menyenangkan.
-                                        </div>
-                                    </div>
-                                </div>
-                                  
-                             </div>
-                        </div>            
-                        <br>
-                        <?php echo $__env->yieldContent('content'); ?>
-                    </div>
-                </div>
-                <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+                    <?php echo $__env->yieldContent('content'); ?>
+                </main>
+            </div>
         </div>
-        <br>
-        
-    </div>
-<script type="text/javascript" src="assets/admin/assets/scripts/main.js"></script></body>
-</html><?php /**PATH C:\xampp\htdocs\LARAVEL\PemesananHotel\resources\views/layout/master.blade.php ENDPATH**/ ?>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="../../../assets/admin/js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="../../assets/admin/assets/demo/chart-area-demo.js"></script>
+        <script src="../../assets/admin/assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="../../../assets/admin/js/datatables-simple-demo.js"></script>
+    </body>
+</html>
+<?php /**PATH C:\xampp\htdocs\LARAVEL\PemesananHotel\resources\views/layout/master.blade.php ENDPATH**/ ?>
