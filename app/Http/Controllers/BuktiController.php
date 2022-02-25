@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Reservation;
 use App\Models\Room;
-use App\Models\Booking;
+use App\Models\Bukti;
 
 class BuktiController extends Controller
 {
@@ -16,12 +15,8 @@ class BuktiController extends Controller
      */
     public function index()
     {
-        $rooms = Room::latest()->paginate(20);
-        return view('bukti.index', compact('rooms'));
-        $reservations = Reservation::latest()->paginate(10);
-        return view('bukti.index', compact('reservations'));
-        $bookings = Booking::latest()->paginate(10);
-        return view('bukti.index', compact('bookings'));
+        $buktis = Bukti::latest()->paginate(10);
+        return view('buktis.index', compact('buktis'));
     }
 
     /**

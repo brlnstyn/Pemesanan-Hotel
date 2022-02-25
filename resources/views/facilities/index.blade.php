@@ -34,7 +34,7 @@
                         <td>
                         <form  method="POST">
                             <a class="btn btn-primary" href="{{ route('facilities.edit',$facility->id) }}">Edit</a>
-                            <a class="btn btn-primary" href="{{ route('facilities.show',$facility->id) }}">Lihat</a>
+                            <a class="btn btn-danger" href="{{ route('facilities.show',$facility->id) }}">Lihat</a>
                         </form>
                         </td>
                     </tr>

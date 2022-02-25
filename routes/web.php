@@ -40,20 +40,21 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin', 'auth', 'PreventBackH
     Route::get('dashboard',[AdminController::class,'index'])->name('admin.dashboard');
 });
 Route::group(['prefix'=>'receptionist', 'middleware'=>['isReceptionist', 'auth', 'PreventBackHistory']], function(){
-    Route::get('dashboard',[ReceptionistController::class,'index'])->name('receptionist.dashboard');
+    Route::get('dashboard',[ReceptionistController::class,'index'])->name('receptionist.dashboard');   
+    Route::get('dashboard',[ReceptionistController::class,'filter'])->name('receptionist.dashboard');
 });
 Route::group(['prefix'=>'user', 'middleware'=>['isUser', 'auth', 'PreventBackHistory']], function(){
     Route::get('dashboard',[UserController::class,'index'])->name('user.dashboard');
 });
 
-Route::resource('uFasilitas', UFasilitasController::class);
-Route::resource('uKamar', UKamarController::class);
-Route::resource('bookings', BookingController::class);
-Route::resource('rooms', RoomController::class);
-Route::resource('fasilitasKamar', FasilitasKamarController::class);
-Route::resource('facilities', FacilityController::class);
-Route::resource('registerAdmin', RegisterAdminController::class);
-Route::resource('registerReceptionist', RegisterReceptionistController::class);
-Route::resource('bukti', BuktiController::class);
+Route::resource('uFasilitas', UFasilitasController::class)->middleware('auth');
+Route::resource('uKamar', UKamarController::class)->middleware('auth');
+Route::resource('bookings', BookingController::class)->middleware('auth');
+Route::resource('rooms', RoomController::class)->middleware('auth');
+Route::resource('fasilitasKamar', FasilitasKamarController::class)->middleware('auth');
+Route::resource('facilities', FacilityController::class)->middleware('auth');
+Route::resource('registerAdmin', RegisterAdminController::class)->middleware('auth');
+Route::resource('registerReceptionist', RegisterReceptionistController::class)->middleware('auth');
+Route::resource('bukti', BuktiController::class)->middleware('auth');
 
 

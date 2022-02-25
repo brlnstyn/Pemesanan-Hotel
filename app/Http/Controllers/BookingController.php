@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Booking;
 use App\Models\Reservation;
 use App\Models\Room;
+use App\Models\Bukti;
 
 class BookingController extends Controller
 {
@@ -16,8 +17,9 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $bookings = Booking::latest()->paginate(10);
-        return view('bookings.index');
+        $rooms = Room::latest()->paginate(10);
+        return view('bookings.index', compact('rooms'));
+        
     }
 
     /**
@@ -27,10 +29,7 @@ class BookingController extends Controller
      */
     public function create()
     {
-        $reservations = Reservation::all();
-        $rooms = Room::all();
-        $bookings = Booking::all();
-        return view('bookings.index', compact('reservations', 'rooms', 'bookings'));
+       
     }
 
     /**
@@ -54,6 +53,16 @@ class BookingController extends Controller
         ]);
 
         Booking::create($validate);
+        Bukti::create([
+            'nama_pemesan' => $validate['nama_pemesan'],
+            'email' => $validate['email'],
+            'no_hp' => $validate['no_hp'],
+            'nama_tamu' => $validate['nama_tamu'],
+            'tipe_kamar' => $validate['tipe_kamar'],
+            'jumlah' => $validate['jumlah'],
+            'tgl_check_in' => $validate['tgl_check_in'],
+            'tgl_check_out' => $validate['tgl_check_out']
+        ]);
         Reservation::create([
             'nama_tamu' => $validate['nama_tamu'],
             'tgl_check_in' => $validate['tgl_check_in'],

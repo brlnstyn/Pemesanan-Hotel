@@ -13,11 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reservations', function (Blueprint $table) {
+        Schema::create('buktis', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_tamu');
             $table->string('tgl_check_in');
             $table->string('tgl_check_out');
+            $table->string('nama_pemesan');
+            $table->string('nama_tamu');
+            $table->string('email');
+            $table->string('no_hp');
+            $table->string('tipe_kamar');
+            $table->string('jumlah');
             $table->timestamps();
         });
     }
@@ -29,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reservations');
+        Schema::dropIfExists('buktis');
     }
 };

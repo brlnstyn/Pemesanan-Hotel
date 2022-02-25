@@ -18,10 +18,10 @@
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" action="route{{'filter'}}" method= "get">
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                    <input class="form-control" type="date" aria-describedby="btnNavbarSearch" name="filter" >
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="submit">Cari</button>
                 </div>
             </form>
             <!-- Navbar-->
@@ -39,14 +39,88 @@
                 </li>
             </ul>
         </nav>
-        <footer class="py-4 bg-light mt-auto">
-            <div class="container-fluid px-4">
-                <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Copyright &copy; Your Website 2022</div>
+        <div id="layoutSidenav">
+     <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <div class="sb-sidenav-menu-heading">Core</div>
+                        <a class="nav-link" href="#">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Data</div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Data Reservasi
+                        </a>
+                    </div>
                 </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        
+                    </div>
+                </nav>
             </div>
-        </footer>
-        @yield('content')
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Dashboard</h1>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Data Reservasi
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Tamu</th>
+                                            <th>Tanggal Check In</th>
+                                            <th>Tanggal Check Out</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Nama Tamu</th>
+                                            <th>Tanggal Check In</th>
+                                            <th>Tanggal Check Out</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    @foreach( $reservations as $reservation )
+                                        <tr>
+                                            <td>{{ $reservation->nama_tamu }}</td>
+                                            <td>{{ $reservation->tgl_check_in }}</td>
+                                            <td>{{ $reservation->tgl_check_out }}</td>
+                                            <td>
+                                                @if(date('Y-m-d') < $reservation['tgl_check_in'])
+                                                    Booking
+                                                @elseif(date('Y-m-d') == $reservation['tgl_check_in'] && date('Y-m-d') < $reservation['tgl_check_out'])
+                                                    Check In
+                                                @elseif(date('Y-m-d') >= $reservation['tgl_check_out'])
+                                                    Check Out
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2022</div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="../../../assets/admin/js/scripts.js"></script>

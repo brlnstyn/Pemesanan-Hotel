@@ -34,7 +34,7 @@
                         <td>
                         <form  method="POST">
                             <a class="btn btn-primary" href="{{ route('rooms.edit',$room->id) }}">Edit</a>
-                            <a class="btn btn-primary" href="{{ route('rooms.show',$room->id) }}">Lihat</a>
+                            <a class="btn btn-danger" href="{{ route('rooms.show',$room->id) }}">Lihat</a>
                         </form>
                         </td>
                     </tr>

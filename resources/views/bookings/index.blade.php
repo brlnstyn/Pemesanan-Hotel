@@ -127,8 +127,9 @@
                         <div class="col-md-12">
                             <strong>Tipe Kamar</strong>
                               <select class="contactus" name="tipe_kamar">
-                                 <option value="Signature Deluxe">Signature Deluxe</option>
-                                 <option value="Junior Suite">Junior Suite</option>
+                              @foreach($rooms as $room)
+                                 <option value="{{$room->tipe_kamar}}">{{$room->tipe_kamar}}</option>
+                              @endforeach
                               </select>
                         </div>
                         <div class="col-md-12">
