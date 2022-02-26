@@ -55,7 +55,7 @@
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                            <ul class="navbar-nav mr-auto">
                               <li class="nav-item ">
-                                 <a class="nav-link" href="">Home</a>
+                                 <a class="nav-link" href="<?php echo e(route('user.dashboard')); ?>">Home</a>
                               </li>
                               <li class="nav-item">
                                  <a class="nav-link" href="<?php echo e(route('uKamar.index')); ?>">Kamar</a>
@@ -139,7 +139,7 @@
                   <div class="col-md-4">
                      <h3>Menu Link</h3>
                      <ul class="link_menu">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="<?php echo e(route('user.dashboard')); ?>">Home</a></li>
                         <li><a href="<?php echo e(route('uKamar.index')); ?>"> Kamar</a></li>
                         <li class="active"><a href="#">Fasilitas</a></li>
                         <li><a href="<?php echo e(route('bookings.index')); ?>">Booking</a></li>

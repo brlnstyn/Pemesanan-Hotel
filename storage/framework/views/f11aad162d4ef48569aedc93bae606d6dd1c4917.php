@@ -157,9 +157,9 @@
                      <h3>Menu Link</h3>
                      <ul class="link_menu">
                         <li class="active"><a href="#">Home</a></li>
-                        <li><a href=""> Kamar</a></li>
-                        <li><a href="">Fasilitas</a></li>
-                        <li><a href="">Booking</a></li>
+                        <li><a href="<?php echo e(route('uKamar.index')); ?>"> Kamar</a></li>
+                        <li><a href="<?php echo e(route('uFasilitas.index')); ?>">Fasilitas</a></li>
+                        <li><a href="<?php echo e(route('bookings.index')); ?>">Booking</a></li>
                      </ul>
                   </div>
                   <div class="col-md-4">

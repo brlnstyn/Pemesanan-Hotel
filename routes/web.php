@@ -13,6 +13,7 @@ use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\RegisterAdminController;
 use App\Http\Controllers\RegisterReceptionistController;
 use App\Http\Controllers\BuktiController;
+use App\Http\Controllers\CetakController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -56,5 +57,6 @@ Route::resource('facilities', FacilityController::class)->middleware('auth');
 Route::resource('registerAdmin', RegisterAdminController::class)->middleware('auth');
 Route::resource('registerReceptionist', RegisterReceptionistController::class)->middleware('auth');
 Route::resource('bukti', BuktiController::class)->middleware('auth');
+Route::resource('cetaks', CetakController::class)->middleware('auth');
 
 
