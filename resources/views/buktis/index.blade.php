@@ -30,6 +30,10 @@
             <td>{{ $bukti->email }}</td>
         </tr>
         <tr>
+            <td>No HandPhone:</td>
+            <td>{{ $bukti->no_hp }}</td>
+        </tr>
+        <tr>
             <td>Tanggal Check In:</td>
             <td>{{ $bukti->tgl_check_in }}</td>
         </tr>

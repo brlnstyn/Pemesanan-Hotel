@@ -30,6 +30,10 @@
             <td>{{ $cetak->email }}</td>
         </tr>
         <tr>
+            <td>No HandPhone:</td>
+            <td>{{ $cetak->no_hp }}</td>
+        </tr>
+        <tr>
             <td>Tanggal Check In:</td>
             <td>{{ $cetak->tgl_check_in }}</td>
         </tr>
