@@ -15,7 +15,7 @@ class BuktiController extends Controller
      */
     public function index()
     {
-        $buktis = Bukti::latest()->paginate(10);
+        $buktis = Bukti::latest()->paginate(1);
         return view('buktis.index', compact('buktis'));
     }
 
