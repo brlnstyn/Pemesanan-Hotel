@@ -44,7 +44,7 @@ class FacilityController extends Controller
 
         $input = $request->all();
 
-        if($image = $request->file('image')){
+        if ($image = $request->file('image')) {
             $destinationPath = 'image/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
@@ -53,7 +53,7 @@ class FacilityController extends Controller
 
         Facility::create($input);
         return redirect()->route('facilities.index')
-                         ->with('success', 'Data berhasil ditambahkan');
+            ->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -75,7 +75,7 @@ class FacilityController extends Controller
      */
     public function edit(Facility $facility)
     {
-        return view('facilities.edit',compact('facility'));
+        return view('facilities.edit', compact('facility'));
     }
 
     /**
@@ -94,18 +94,18 @@ class FacilityController extends Controller
 
         $input = $request->all();
 
-        if($image = $request->file('image')){
+        if ($image = $request->file('image')) {
             $destinationPath = 'image/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
-        }else{
+        } else {
             unset($input['image']);
         }
 
         $facility->update($input);
         return redirect()->route('facilities.index')
-                         ->with('success', 'Data berhasil di update');
+            ->with('success', 'Data berhasil di update');
     }
 
     /**
@@ -114,8 +114,10 @@ class FacilityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Facility $facility)
     {
-        //
+        $facility->delete();
+        return redirect()->route('facilities.index')
+            ->with('success', 'Data berhasil di hapus');
     }
 }

@@ -46,7 +46,7 @@ class RoomController extends Controller
 
         $input = $request->all();
 
-        if($image = $request->file('image')){
+        if ($image = $request->file('image')) {
             $destinationPath = 'image/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
@@ -55,7 +55,7 @@ class RoomController extends Controller
 
         Room::create($input);
         return redirect()->route('rooms.index')
-                         ->with('success', 'Data berhasil ditambahkan');
+            ->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -66,7 +66,7 @@ class RoomController extends Controller
      */
     public function show(Room $room)
     {
-        return view('rooms.show',compact('room'));
+        return view('rooms.show', compact('room'));
     }
 
     /**
@@ -77,7 +77,7 @@ class RoomController extends Controller
      */
     public function edit(Room $room)
     {
-        return view('rooms.edit',compact('room'));
+        return view('rooms.edit', compact('room'));
     }
 
     /**
@@ -98,19 +98,18 @@ class RoomController extends Controller
 
         $input = $request->all();
 
-        if($image = $request->file('image')){
+        if ($image = $request->file('image')) {
             $destinationPath = 'image/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
-        }else{
+        } else {
             unset($input['image']);
         }
 
         $room->update($input);
         return redirect()->route('rooms.index')
-                         ->with('success', 'Data berhasil di update');
-
+            ->with('success', 'Data berhasil di update');
     }
 
     /**
@@ -119,8 +118,10 @@ class RoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Room $room)
     {
-        //
+        $room->delete();
+        return redirect()->route('rooms.index')
+            ->with('success', 'Berhasil Hapus');
     }
 }
