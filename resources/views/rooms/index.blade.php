@@ -3,7 +3,7 @@
 @section('content')
 <div class="card mb-4">
     <div class="card-header">
-        <div class="text-right"><a href="{{ route('rooms.create') }}" class="btn btn-primary">Create</a></div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end"><a href="{{ route('rooms.create') }}" class="btn btn-primary">Create</a></div>
     </div>
     <div class="card-body">
         <table id="datatablesSimple">

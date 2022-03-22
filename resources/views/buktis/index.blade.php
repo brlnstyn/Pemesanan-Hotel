@@ -1,73 +1,35 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Bukti Booking</title>
 </head>
+
 <body>
-<div class="container">
-@foreach ($buktis as $bukti)
+    @foreach ($buktis as $bukti)
     <h1>Bukti Booking Hotel Hebat</h1>
-    <table>
-        <td colspan="6">
-            -------------------------------------------------------------------------------------------
-        </td>
-        <tr>
-            <td>Tanggal Booking</td>
-            <td>{{ $bukti->created_at }}</td>
-        </tr>
-        <tr>
-            <td>Nama Tamu:</td>
-            <td>{{ $bukti->nama_tamu }}</td>
-        </tr>
-        <tr>
-            <td>Nama Pemesan:</td>
-            <td>{{ $bukti->nama_pemesan }}</td>
-        </tr>
-        <tr>
-            <td>Email:</td>
-            <td>{{ $bukti->email }}</td>
-        </tr>
-        <tr>
-            <td>No HandPhone:</td>
-            <td>{{ $bukti->no_hp }}</td>
-        </tr>
-        <tr>
-            <td>Tanggal Check In:</td>
-            <td>{{ $bukti->tgl_check_in }}</td>
-        </tr>
-        <tr>
-            <td>Tanggal Check Out:</td>
-            <td>{{ $bukti->tgl_check_out }}</td>
-        </tr>
-        <tr>
-            <td>Tipe Kamar:</td>
-            <td>{{ $bukti->tipe_kamar }}</td>
-        </tr>
-        <tr>
-            <td>Jumlah Kamar:</td>
-            <td>{{ $bukti->jumlah }}</td>
-        </tr>
-        <td colspan="6">
-        -------------------------------------------------------------------------------------------
-        </td>
-        <tr>
-            <td style = text-align:center;><strong>Simpan bukti ini dan berikan pada resepsionis</strong></td>
-        </tr>
-        <tr>
-            <td>
-            <a href="{{ route('cetaks.index') }}" target="_blank" style="text-align:center;">Cetak</a>
-            <a href="{{ route('bookings.index') }}" style="text-align:center;">Kembali</a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="6">
-            -------------------------------------------------------------------------------------------
-            </td>
-        </tr>
-    </table>
+    <div class="card text-center border-info" style="width: 35rem;">
+        <div class="card-body">
+            <h5 class="card-title">Nama Tamu : {{ $bukti->nama_tamu }}</h5>
+            <h5 class="card-title">Nama Pemesan: {{ $bukti->nama_pemesan }}</h5>
+            <h5 class="card-title">No Handphone: {{ $bukti->no_hp }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Tanggal Booking: {{ $bukti->created_at }}</h6>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Tanggal Check In : {{ $bukti->tgl_check_in }}</li>
+                <li class="list-group-item">Tanggal Check Out : {{ $bukti->tgl_check_out }}</li>
+                <li class="list-group-item">Tipe Kamar : {{ $bukti->tipe_kamar }}</li>
+                <li class="list-group-item">Jumlah Kamar : {{ $bukti->jumlah }}</li>
+            </ul>
+            <p class="card-text">Simpan bukti ini dan berikan pada resepsionis</p>
+            <a href="{{ route('cetaks.index') }}" target="_blank" class="card-link">Cetak</a>
+            <a href="{{ route('bookings.index') }}" class="card-link">Kembali</a>
+        </div>
+    </div>
     @endforeach
-</div>
 </body>
+
 </html>
